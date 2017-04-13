@@ -44,7 +44,7 @@ def is_superbalanced(node, curr_depth=0, min_depth=None, max_depth=None):
     12
 
     >>> is_superbalanced(root)
-    True
+    (True, 2, 3)
 
 
             10
@@ -68,7 +68,7 @@ def is_superbalanced(node, curr_depth=0, min_depth=None, max_depth=None):
     11
 
     >>> is_superbalanced(root2)
-    False
+    (False, 2, 4)
 
     """
 
@@ -78,17 +78,17 @@ def is_superbalanced(node, curr_depth=0, min_depth=None, max_depth=None):
         if (max_depth is None) or (curr_depth > max_depth):
             max_depth = curr_depth
         if (max_depth - min_depth > 1):
-            return False
-        return True
+            return (False, min_depth, max_depth)
+        return (True, min_depth, max_depth)
     if node.left:
-        left_check = is_superbalanced(node.left, curr_depth+1, min_depth, max_depth)
+        left_check, min_depth, max_depth = is_superbalanced(node.left, curr_depth+1, min_depth, max_depth)
         if not left_check:
-            return False
+            return (False, min_depth, max_depth)
     if node.right:
-        right_check = is_superbalanced(node.right, curr_depth+1, min_depth, max_depth)
+        right_check, min_depth, max_depth = is_superbalanced(node.right, curr_depth+1, min_depth, max_depth)
         if not right_check:
-            return False
-    return True
+            return (False, min_depth, max_depth)
+    return (True, min_depth, max_depth)
 
 
 if __name__ == "__main__":
