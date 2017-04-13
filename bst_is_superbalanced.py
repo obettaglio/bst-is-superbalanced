@@ -15,8 +15,8 @@ class BinaryTreeNode:
 
 
 def is_superbalanced(node, curr_depth=0, min_depth=None, max_depth=None):
-    """Find all possible combinations of coins with given denominations
-    that add up to the given monetary amount in cents.
+    """Determine if all leaves of a binary tree are within one level of
+    depth from all others.
 
     Test cases:
 
