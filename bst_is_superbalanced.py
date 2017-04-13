@@ -1,3 +1,8 @@
+"""Not sure why the second test case on root2 returns True. Likely due to
+error in variable passing between recursive calls. Min_depth and max_depth
+variables need to be edited in-place."""
+
+
 class BinaryTreeNode:
 
     def __init__(self, value):
